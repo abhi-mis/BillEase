@@ -11,7 +11,7 @@ import { PageTransition } from '@/components/ui/PageTransition'
 const leagueSpartan = League_Spartan({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-	title: 'BillEase',
+	title: 'EaseBill',
 	description: 'Invoice Status',
 	themeColor: [
 		{ media: '(prefers-color-scheme: light)', color: '#9277FF' },

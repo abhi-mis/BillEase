@@ -15,13 +15,16 @@ type ControlPannelProps = {
 
 export const ControlPannelDetails = ({ as, onEdit }: ControlPannelProps) => {
 	const { updateSelectedInvoice, deleteInvoice } = useInvoice()
-	const [isOpenModal, toggleModal] =useToggle()
+	const [isOpenModal, toggleModal] = useToggle()
 	const params = useSearchParams()
 	const invoiceId = params.get('invoiceId')
 	if (!invoiceId) return
 
 	const markAsPaid = () => updateSelectedInvoice(invoiceId, 'paid')
+	const markAsPending = () => updateSelectedInvoice(invoiceId, 'pending')
 	const handleOpenModal = () => toggleModal()
+
+	const isPaid = as === 'paid' // Check if the invoice is marked as paid
 
 	return (
 		<div className='mt-10 flex w-full items-center justify-between rounded-lg bg-white p-6 shadow-sm dark:bg-primaryDark'>
@@ -29,7 +32,7 @@ export const ControlPannelDetails = ({ as, onEdit }: ControlPannelProps) => {
 				<span className='text-gray'>status</span>
 				<Status as={as} />
 			</div>
-			<div className='fixed bottom-0 left-0 z-10  flex w-full justify-around gap-3 bg-white bg-none px-2 py-6 shadow-lg dark:bg-primaryDark md:z-0 sm:justify-end  sm:gap-6 sm:px-10  sm:shadow-none  md:static md:p-0'>
+			<div className='fixed bottom-0 left-0 z-10 flex w-full justify-around gap-3 bg-white bg-none px-2 py-6 shadow-lg dark:bg-primaryDark md:z-0 sm:justify-end sm:gap-6 sm:px-10 sm:shadow-none md:static md:p-0'>
 				<Button
 					bgDark='dark:bg-secondaryDark'
 					bg='bg-lightGray'
@@ -58,9 +61,9 @@ export const ControlPannelDetails = ({ as, onEdit }: ControlPannelProps) => {
 						bgHover='hover:bg-secondary'
 						textColor='text-white'
 						padding='sm:px-6'
-						onClick={markAsPaid}
+						onClick={isPaid ? markAsPending : markAsPaid} // Call the appropriate function based on the status
 					>
-						Mark as Paid
+						{isPaid ? 'Mark as Pending' : 'Mark as Paid'}
 					</Button>
 				</div>
 			</div>

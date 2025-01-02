@@ -24,7 +24,7 @@ const RegisterPage = () => {
 						<div className='absolute bottom-0 left-0 z-[-1] h-1/2 w-full rounded-tl-xl bg-secondary' />
 						<Image alt='logo' src='./assets/logo.svg' width={25} height={25} />
 					</div>
-					<h1 className='h-[30px] text-headingL '>BillEase</h1>
+					<h1 className='h-[30px] text-headingL '>EaseBill</h1>
 				</div>
 				<h2 className='mb-8 text-3xl font-[500] '>{isLogin ? 'Log in' : 'Sign up'}</h2>
 				{isLogin ? <Login /> : <Signup />}

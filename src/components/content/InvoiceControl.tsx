@@ -46,24 +46,25 @@ export const InvoiceControl = () => {
 	}
 
 	return (
-		<div className='flex items-center justify-between dark:text-white'>
+		<div className='flex items-center justify-between p-6 bg-white rounded-lg shadow-md dark:bg-gray-800 dark:text-white'>
 			<div className='flex flex-col'>
-				<h1 className='text-headingM lg:text-headingL '>Invoices</h1>
-				<p className='text-[.7em] '>
+				<h1 className='text-2xl font-bold lg:text-3xl'>Invoices</h1>
+				<p className='text-sm text-gray-600'>
 					{targetReached ? `There are ${numberOfInvoices} total Invoices` : `${numberOfInvoices} Invoices `}
 				</p>
 			</div>
+			
 			<div className='inline-flex items-center gap-5 sm:gap-10'>
 				<Filter />
 				<button
-					className='rounded-[30px] bg-primary p-2 py-2.5 text-xl text-white transition-colors duration-300 hover:bg-secondary'
+					className='flex items-center justify-center rounded-full bg-blue-600 border-2 border-blue-700 p-2 py-2.5 text-xl text-white transition-colors duration-300 hover:bg-blue-700 transform hover:scale-105'
 					onClick={showForm}
 				>
-					<div className='inline-flex items-center gap-3 md:gap-4'>
-						<div className='flex h-8   w-8 items-center justify-center rounded-full bg-white'>
+					<div className='flex items-center gap-3'>
+						<div className='flex h-8 w-8 items-center justify-center rounded-full bg-white'>
 							<Image alt='' src='./assets/icon-plus.svg' width={16} height={16} />
 						</div>
-						<span className='mr-2 h-5 text-base'>{targetReached ? 'New Invoice' : 'New'}</span>
+						<span className='text-base'>{targetReached ? 'New Invoice' : 'New'}</span>
 					</div>
 				</button>
 			</div>

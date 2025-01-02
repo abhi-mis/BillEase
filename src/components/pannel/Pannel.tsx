@@ -15,7 +15,7 @@ export const Pannel = () => {
 	const { isOpen, toggleState } = useOutsideClick(menuRef)
 	return (
 		<div className='relative z-[9999] h-24 w-24 '>
-			<div className='fixed left-0  top-0 flex h-24 w-full  justify-between bg-secondaryDark lg:h-full lg:w-24 lg:flex-col lg:rounded-r-3xl'>
+			<div className='fixed left-0  top-0 flex h-24 w-full  justify-between border-blue-600 border-2 lg:h-full lg:w-24 lg:flex-col lg:rounded-r-3xl'>
 				<Logo />
 				<div className='flex lg:flex-col '>
 					<SwitchModeBtn />
@@ -29,17 +29,12 @@ export const Pannel = () => {
 								<Avatar />
 							</IconButton>
 						</Tooltip>
-						<motion.span
-							variants={pulseAnimation}
-							initial='hidden'
-							animate='visible'
-							className='absolute right-1 top-5 rounded-2xl bg-secondary px-2 text-sm text-white '
-						>
-							New!
-						</motion.span>
+						
 						<AnimatePresence>{isOpen && <Menu />}</AnimatePresence>
 					</div>
 				</div>
+
+				
 			</div>
 		</div>
 	)
